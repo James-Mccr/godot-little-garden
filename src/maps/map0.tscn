@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://qcthxlim5yk0"]
+
+[ext_resource type="Texture2D" uid="uid://bg0tbsl8s4ryi" path="res://art/dirt.png" id="1_d6ec8"]
+[ext_resource type="Script" path="res://grid/grid.gd" id="2_4vk6q"]
+[ext_resource type="PackedScene" uid="uid://bsomnulkfgnc0" path="res://cursor/cursor.tscn" id="3_lrvm5"]
+[ext_resource type="PackedScene" uid="uid://b1k7l8yw01vi3" path="res://bee/bee.tscn" id="4_8ki5p"]
+[ext_resource type="PackedScene" uid="uid://ctb5ylgev8uaq" path="res://sunflower/sunflower.tscn" id="5_37q84"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g021"]
+texture = ExtResource("1_d6ec8")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+
+[sub_resource type="TileSet" id="TileSet_gm1ue"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(16, 8)
+sources/0 = SubResource("TileSetAtlasSource_0g021")
+
+[node name="Map" type="TileMap"]
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_gm1ue")
+format = 2
+layer_0/name = "layer0"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 1, 0, 0, -65535, 0, 0)
+layer_1/name = "layer1"
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 1
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_4vk6q")
+
+[node name="Sunflower" parent="." instance=ExtResource("5_37q84")]
+position = Vector2(24, 4)
+tile = Vector2i(1, -1)
+
+[node name="Bee" parent="." instance=ExtResource("4_8ki5p")]
+position = Vector2(8, 12)
+tile = Vector2i(1, 1)
+
+[node name="TileCursor" parent="." instance=ExtResource("3_lrvm5")]

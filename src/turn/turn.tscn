@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bato2do6bb0dk"]
+
+[ext_resource type="Script" path="res://turn/turn.gd" id="1_r7v0b"]
+
+[node name="Turn" type="Node"]
+script = ExtResource("1_r7v0b")

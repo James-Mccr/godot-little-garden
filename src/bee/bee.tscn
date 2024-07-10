@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1k7l8yw01vi3"]
+
+[ext_resource type="Script" path="res://bee/bee.gd" id="1_ixw8r"]
+[ext_resource type="Texture2D" uid="uid://bgcjn41m3xp0q" path="res://bee/bee.png" id="1_v5ijo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suubc"]
+atlas = ExtResource("1_v5ijo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej38e"]
+atlas = ExtResource("1_v5ijo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu34n"]
+atlas = ExtResource("1_v5ijo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs13y"]
+atlas = ExtResource("1_v5ijo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cntos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej38e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu34n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs13y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Bee" type="Node2D" groups=["player"]]
+z_index = 2
+script = ExtResource("1_ixw8r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_cntos")
+frame_progress = 0.849816
+offset = Vector2(0, 4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

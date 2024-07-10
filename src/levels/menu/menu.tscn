@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://qqvqk2fmlo00"]
+
+[ext_resource type="Texture2D" uid="uid://bgcjn41m3xp0q" path="res://bee/bee.png" id="1_2t7nj"]
+[ext_resource type="Script" path="res://levels/menu/menu.gd" id="1_rmdxe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxf6c"]
+atlas = ExtResource("1_2t7nj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2kul"]
+atlas = ExtResource("1_2t7nj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj8ls"]
+atlas = ExtResource("1_2t7nj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j5mx"]
+atlas = ExtResource("1_2t7nj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xb4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxf6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2kul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj8ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j5mx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_rmdxe")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="start" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Start"
+
+[node name="settings" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Settings"
+
+[node name="quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
+position = Vector2(0, 25)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6xb4r")
+autoplay = "default"
+frame_progress = 0.0542197
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

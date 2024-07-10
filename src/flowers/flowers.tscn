@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8v6ewr4le6vt"]
+
+[ext_resource type="Script" path="res://flowers/flowers.gd" id="1_8gk6b"]
+[ext_resource type="Texture2D" uid="uid://8da8qyxxjk28" path="res://flowers/flowers.png" id="1_akmwu"]
+[ext_resource type="PackedScene" uid="uid://bato2do6bb0dk" path="res://turn/turn.tscn" id="3_jal13"]
+[ext_resource type="Script" path="res://flowers/flower_turn.gd" id="4_q6xx2"]
+
+[node name="Flowers" type="Node2D"]
+z_index = 2
+script = ExtResource("1_8gk6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_akmwu")
+offset = Vector2(0, 4)
+
+[node name="Turn" parent="." instance=ExtResource("3_jal13")]
+script = ExtResource("4_q6xx2")

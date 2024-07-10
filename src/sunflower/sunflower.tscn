@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctb5ylgev8uaq"]
+
+[ext_resource type="Script" path="res://sunflower/sunflower.gd" id="1_0ogj5"]
+[ext_resource type="Texture2D" uid="uid://blxfvocv2wxxx" path="res://sunflower/sunflower.png" id="2_7xs5o"]
+[ext_resource type="PackedScene" uid="uid://bato2do6bb0dk" path="res://turn/turn.tscn" id="3_yfkeo"]
+[ext_resource type="Script" path="res://sunflower/sunflower_turn.gd" id="4_0rxnk"]
+
+[node name="Sunflower" type="Node2D"]
+z_index = 2
+script = ExtResource("1_0ogj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_7xs5o")
+offset = Vector2(0, -5)
+
+[node name="Turn" parent="." instance=ExtResource("3_yfkeo")]
+script = ExtResource("4_0rxnk")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsomnulkfgnc0"]
+
+[ext_resource type="Script" path="res://cursor/cursor_grid.gd" id="1_qkg20"]
+[ext_resource type="Texture2D" uid="uid://x16skwtttfa8" path="res://cursor/cursor.png" id="2_tljkq"]
+
+[node name="TileCursor" type="Node2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_qkg20")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tljkq")
+offset = Vector2(0, 4)

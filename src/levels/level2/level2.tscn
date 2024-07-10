@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cckvatfc5nhg5"]
+
+[ext_resource type="PackedScene" uid="uid://d2oo1t63y77o5" path="res://maps/map2.tscn" id="1_f0q2q"]
+[ext_resource type="Script" path="res://levels/level2/level2.gd" id="1_r01ws"]
+[ext_resource type="PackedScene" uid="uid://47qcjdj4uia3" path="res://turn/turn_manager.tscn" id="2_1itvr"]
+
+[node name="Level2" type="Node"]
+script = ExtResource("1_r01ws")
+
+[node name="Map" parent="." instance=ExtResource("1_f0q2q")]
+
+[node name="TurnManager" parent="." instance=ExtResource("2_1itvr")]

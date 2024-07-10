@@ -1,2 +1,3 @@
 # godot-little-garden
-A prototype gardening game
+A little game about a little bee in a little garden.
+Guide B to the sunflower

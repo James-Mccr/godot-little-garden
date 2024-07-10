@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0wmklrjjmy8v"]
+
+[ext_resource type="Script" path="res://spider/spider.gd" id="1_oywye"]
+[ext_resource type="Texture2D" uid="uid://qoxhhcbwsbrg" path="res://spider/spider.png" id="2_a1yoc"]
+[ext_resource type="PackedScene" uid="uid://bato2do6bb0dk" path="res://turn/turn.tscn" id="3_sm53f"]
+[ext_resource type="Script" path="res://spider/spider_turn.gd" id="4_fsoh2"]
+[ext_resource type="Texture2D" uid="uid://iyeyi0rm3wju" path="res://spider/web_cursor.png" id="5_b8vty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6odb"]
+atlas = ExtResource("2_a1yoc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hm7n"]
+atlas = ExtResource("2_a1yoc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oku07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6odb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hm7n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Spider" type="Node2D"]
+z_index = 2
+script = ExtResource("1_oywye")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_oku07")
+autoplay = "default"
+offset = Vector2(0, 4)
+
+[node name="Turn" parent="." instance=ExtResource("3_sm53f")]
+script = ExtResource("4_fsoh2")
+
+[node name="WebCursor" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+texture = ExtResource("5_b8vty")
+offset = Vector2(0, 4)
+
+[node name="WebCursor2" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+texture = ExtResource("5_b8vty")
+offset = Vector2(0, 4)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://r770lfdii0bk"]
+
+[ext_resource type="Script" path="res://levels/settings/settings.gd" id="1_4m5pf"]
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_4m5pf")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 19.0
+offset_top = 11.0
+offset_right = 236.0
+offset_bottom = 42.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Full Screen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 106.0
+offset_right = 101.0
+offset_bottom = 137.0
+text = "Back"
+
+[connection signal="item_selected" from="GridContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
